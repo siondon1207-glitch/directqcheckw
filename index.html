@@ -1,23 +1,853 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+
+  <!-- JSON-LD Structured Data for LLM & Search Engine Optimization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "기아 더 뉴 카니발 9인승 (Kia Carnival 9-Seater)",
+    "image": "https://auto.reliabledone.com/images/carnival-9seater.png",
+    "description": "2026년식 기아 카니발 9인승 모델의 가솔린 3.5 및 1.6 터보 하이브리드 트림별 가격 비교와 실구매 견적 및 세제 혜택 가이드입니다.",
+    "brand": {
+      "@type": "Brand",
+      "name": "기아 (Kia)"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "KRW",
+      "lowPrice": "36360000",
+      "highPrice": "49570000",
+      "offerCount": "8"
+    },
+    "category": "대형 MPV / 패밀리카",
+    "model": "더 뉴 카니발 4세대 연식변경"
+  }
+  </script>
+
+  <!-- Google Web Fonts for Great Readability -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* 다채롭고 부드러운 modern 테마 스타일 정의 */
+    :root {
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --primary-light: #eff6ff;
+      --secondary: #0ea5e9;
+      --secondary-light: #f0f9ff;
+      --accent: #f43f5e;
+      --accent-light: #fff1f2;
+      --neutral-dark: #1e293b;
+      --neutral-medium: #475569;
+      --neutral-light: #f8fafc;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 10px 25px rgba(59, 130, 246, 0.08);
+      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    body {
+      font-family: 'Noto Sans KR', 'Outfit', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f1f5f9;
+      color: var(--neutral-dark);
+      line-height: 1.8;
+      letter-spacing: -0.02em;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      color: var(--white);
+      padding: 60px 20px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin: 0 0 20px 0;
+      line-height: 1.3;
+      word-break: keep-all;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      font-weight: 300;
+      opacity: 0.9;
+      margin: 0 auto;
+      max-width: 800px;
+      word-break: keep-all;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: -30px auto 40px auto;
+      background: var(--white);
+      padding: 15px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--neutral-medium);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 10px 22px;
+      border-radius: 12px;
+      background-color: var(--neutral-light);
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+      background-color: var(--primary-light);
+      transform: translateY(-1px);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-top: 0;
+      margin-bottom: 25px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--primary-light);
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary);
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--neutral-dark);
+      margin-top: 35px;
+      margin-bottom: 15px;
+      padding-left: 12px;
+      border-left: 5px solid var(--secondary);
+    }
+
+    p {
+      margin: 0 0 20px 0;
+      color: var(--neutral-medium);
+      font-size: 1.08rem;
+    }
+
+    strong {
+      color: var(--neutral-dark);
+      font-weight: 700;
+    }
+
+    ul, ol {
+      margin: 0 0 25px 0;
+      padding-left: 20px;
+      color: var(--neutral-medium);
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 25px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    th, td {
+      padding: 16px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      font-size: 1rem;
+    }
+
+    th {
+      background-color: var(--primary-light);
+      color: #1e3a8a;
+      font-weight: 700;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .table-container {
+      overflow-x: auto;
+    }
+
+    /* 시각적 그래프 표현 클래스 */
+    .chart-container {
+      background: var(--neutral-light);
+      border-radius: 16px;
+      padding: 25px;
+      margin: 30px 0;
+    }
+
+    .chart-bar-group {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .chart-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .chart-label {
+      width: 150px;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .chart-track {
+      flex-grow: 1;
+      height: 24px;
+      background-color: var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .chart-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
+      border-radius: 12px;
+      transition: width 1s ease-in-out;
+    }
+
+    .chart-value {
+      width: 90px;
+      text-align: right;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    /* 견적 계산기 폼 스타일 */
+    .calculator-box {
+      background: var(--secondary-light);
+      border: 2px dashed rgba(14, 165, 233, 0.3);
+      border-radius: 20px;
+      padding: 30px;
+      margin: 35px 0;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--neutral-dark);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 1rem;
+      background-color: var(--white);
+      color: var(--neutral-dark);
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .checkbox-item input {
+      width: 18px;
+      height: 18px;
+    }
+
+    .calc-btn {
+      width: 100%;
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 16px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      border-radius: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+      transition: background-color 0.3s, transform 0.1s;
+      margin-top: 15px;
+    }
+
+    .calc-btn:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .result-box {
+      margin-top: 30px;
+      background: var(--white);
+      padding: 25px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--neutral-light);
+    }
+
+    .result-row:last-child {
+      border-bottom: none;
+    }
+
+    .result-title {
+      font-weight: 500;
+      color: var(--neutral-medium);
+    }
+
+    .result-value {
+      font-weight: 700;
+      color: var(--neutral-dark);
+    }
+
+    .result-value.highlight-text {
+      color: var(--accent);
+      font-size: 1.25rem;
+    }
+
+    .info-card {
+      background-color: var(--accent-light);
+      border-left: 5px solid var(--accent);
+      padding: 20px;
+      border-radius: 0 16px 16px 0;
+      margin: 25px 0;
+    }
+
+    .info-card h4 {
+      margin: 0 0 10px 0;
+      color: var(--neutral-dark);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .external-links {
+      background-color: var(--neutral-light);
+      border-radius: 16px;
+      padding: 25px;
+      margin-top: 40px;
+      border: 1px solid var(--border);
+    }
+
+    .external-links a {
+      display: inline-block;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      margin-right: 20px;
+      transition: color 0.3s;
+    }
+
+    .external-links a:hover {
+      color: var(--primary-hover);
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: var(--neutral-dark);
+      color: #94a3b8;
+      font-size: 0.95rem;
+      border-top: 1px solid #334155;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        padding: 40px 15px;
+      }
+
+      header h1 {
+        font-size: 1.9rem;
+      }
+
+      section {
+        padding: 25px;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .checkbox-group {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <h1>2026 카니발 9인승 가격 트림별 신차 비용 비교 계산 가이드</h1>
+      <p>기아 브랜드 대표 패밀리카, 4세대 더 뉴 카니발 9인승 모델의 가솔린 및 하이브리드 엔진별 가격표와 세제 혜택, 실구매 견적 및 최적 옵션 추천 분석을 전해드립니다.</p>
+    </div>
+  </header>
+
+  <nav aria-label="메인 이동 경로">
+    <a href="#intro">연식변경 소개</a>
+    <a href="#price-table">트림별 가격비교</a>
+    <a href="#engine-compare">엔진별 장단점</a>
+    <a href="#tax-benefit">구매 세제혜택</a>
+    <a href="#online-calculator">실구매 계산기</a>
+    <a href="#community-review">커뮤니티 후기</a>
+  </nav>
+
+  <main>
+    <section id="intro">
+      <h2>2026년형 기아 카니발 9인승 변화와 트렌드</h2>
+      <p>
+        대한민국 미니밴 순위 1위를 굳건히 지키고 있는 기아 브랜드 대표 패밀리카, <strong>더 뉴 카니발</strong>이 연식변경을 거치며 편의 사양을 기본화하고 한층 완성도 높은 패키징으로 업그레이드되었습니다. 넓은 공간감과 세련된 디자인으로 사랑받는 9인승 모델은 다인원 승차 목적뿐만 아니라 사업자 세무 처리, 고속도로 버스전용차로 주행 혜택까지 아우르는 최고의 실용적인 자동차 종류 중 하나입니다.
+      </p>
+      <p>
+        최근 자동차 구매 트렌드는 가솔린 1.6 터보 하이브리드 모델에 대한 쏠림 현상이 두드러집니다. 높은 연비와 세제 감면 혜택 덕분에 초기 구입 가격이 상대적으로 높은 편임에도 불구하고 많은 소비자가 하이브리드를 선택하고 있으며, 2026년형 기준으로 대기 기간 역시 가솔린 가속기 탑재 차량에 비해 다소 긴 대기 일정이 예상됩니다.
+      </p>
+      <p>
+        본 가이드에서는 2026년형 기준 카니발 9인승의 실구매 평균 비용은 얼마 정도인지, 각 트림별 선택 가능한 옵션 구성과 이에 따른 금융 납입 금액 계산기 사용법까지 한눈에 비교해 볼 수 있도록 정리했습니다.
+      </p>
+    </section>
+
+    <section id="price-table">
+      <h2>카니발 9인승 트림별 신차 가격표</h2>
+      <p>
+        2026년 기준 더 뉴 카니발 9인승의 공식 가격표를 기본 구성 사양에 맞춰 비교하였습니다. 파워트레인은 스마트스트림 가솔린 3.5 엔진과 스마트스트림 가솔린 1.6 터보 하이브리드 두 가지 엔진을 중심으로 구성됩니다.
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>엔진 및 파워트레인</th>
+              <th>프레스티지</th>
+              <th>노블레스</th>
+              <th>시그니처</th>
+              <th>X-Line (그래비티)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>스마트스트림 가솔린 3.5</strong></td>
+              <td>36,360,000 원</td>
+              <td>40,710,000 원</td>
+              <td>44,260,000 원</td>
+              <td>45,020,000 원</td>
+            </tr>
+            <tr>
+              <td><strong>가솔린 1.6 터보 하이브리드</strong></td>
+              <td>40,910,000 원</td>
+              <td>45,260,000 원</td>
+              <td>48,810,000 원</td>
+              <td>49,570,000 원</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-card">
+        <h4>신차 출고 가이드 참고사항</h4>
+        <p>
+          위 제시된 금액은 기아자동차의 순수 신차 기본 가격이며, 선택 옵션(드라이브 와이즈, 스타일, 컴포트, 모니터링 팩, 스마트 커넥트 및 빌트인 캠 2 등)을 추가할 경우 총 차량 공급가액은 인상될 수 있습니다. 1.6 터보 하이브리드 파워트레인은 동일 트림 가솔린 3.5 대비 정확히 4,550,000 원이 추가로 적용됩니다.
+        </p>
+      </div>
+
+      <h3>시각적 가격 범위 및 세부 선택 비중</h3>
+      <p>
+        소비자들이 9인승 가입 시 가장 눈여겨보는 트림별 선호 비중 및 가격 상승 편차를 시각화한 그래프입니다.
+      </p>
+
+      <div class="chart-container">
+        <div class="chart-bar-group">
+          <div class="chart-item">
+            <div class="chart-label">프레스티지 (가성비)</div>
+            <div class="chart-track"><div class="chart-fill" style="width: 30%;"></div></div>
+            <div class="chart-value">36.3M ~</div>
+          </div>
+          <div class="chart-item">
+            <div class="chart-label">노블레스 (균형형)</div>
+            <div class="chart-track"><div class="chart-fill" style="width: 65%;"></div></div>
+            <div class="chart-value">40.7M ~</div>
+          </div>
+          <div class="chart-item">
+            <div class="chart-label">시그니처 (고급형)</div>
+            <div class="chart-track"><div class="chart-fill" style="width: 100%;"></div></div>
+            <div class="chart-value">44.2M ~</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="engine-compare">
+      <h2>가솔린 3.5 VS 1.6 하이브리드 장단점 비교</h2>
+      <p>
+        구매 희망자가 가장 고민하는 파워트레인 선택의 기준입니다. 보배드림, 펨코 등의 커뮤니티에서 늘 화두가 되는 두 엔진 방식의 차이점을 명확히 짚어드립니다.
+      </p>
+
+      <h3>스마트스트림 가솔린 3.5의 장단점</h3>
+      <ul>
+        <li><strong>장점:</strong> 6기통 자연흡기 특유의 압도적인 부드러움과 우수한 승차감을 자랑합니다. 고속 주행 시 폭발적인 가속 성능과 주행 질감이 뛰어나며, 하이브리드 엔진 대비 차량 구매 초기 진입 가격이 455만 원가량 저렴합니다.</li>
+        <li><strong>단점:</strong> 연비가 다소 불리하여 고유가 시대에 유지비가 비교적 많이 지출됩니다. 또한 연간 자동차세가 약 90만 원에 달해 매년 고정적으로 들어가는 세금 비용에 부담이 따릅니다.</li>
+      </ul>
+
+      <h3>가솔린 1.6 터보 하이브리드의 장단점</h3>
+      <ul>
+        <li><strong>장점:</strong> 도심 복합 연비가 13.5에서 14.0 km/l 수준으로 매우 경제적이며, 공영주차장 및 공항 주차장 할인 등의 저공해 자동차 다중 혜택을 챙길 수 있습니다. 1.6L 배기량 기준이기에 연간 자동차세 요금이 약 29만 원에 불과하여 연간 고정 세 부담이 매우 낮습니다.</li>
+        <li><strong>단점:</strong> 초기 신차 출고 예상 구매 금액이 매우 높게 책정되며, 엔진룸 내부 기계 부품이 고도화되어 있어 향후 장기적인 사후 정비 관리 시 부품 수리 유지 비용이 높게 청구될 소지가 있습니다.</li>
+      </ul>
+    </section>
+
+    <section id="tax-benefit">
+      <h2>카니발 9인승만의 특별한 혜택 및 세무 처리 요령</h2>
+      <p>
+        카니발 9인승은 일반 7인승 모델이나 대형 SUV 세단류와 차별화되는 고유의 법적 세제 혜택과 특혜를 품고 있습니다.
+      </p>
+      
+      <h3>1. 개인사업자 및 법인 부가세 환급</h3>
+      <p>
+        9인승 이상 승합차로 분류되는 차량 특성상, 사업 영위 목적의 개인이 오토리스나 신차 다이렉트 할부로 신청해 운용할 경우 차량 출고 가격에 포함된 부가가치세 10% 전액을 세무당국으로부터 공제 및 환급받을 수 있습니다.
+      </p>
+
+      <h3>2. 고속도로 버스전용차로 진입 권한</h3>
+      <p>
+        9인승 차량에 실제 6인 이상이 탑승한 경우에는 고속도로의 파란색 차로인 버스전용차로를 적법하게 운행할 수 있으므로 명절이나 주말의 정체 구간 주행 시 큰 시공간적 이득을 보장받습니다.
+      </p>
+
+      <h3>3. 개별소비세 비과세 대상</h3>
+      <p>
+        일반 자가용 승용차량에 부과되는 개별소비세가 전액 면제되므로, 차량의 총 구매 비용 관점에서 훨씬 유리한 최저가 신차 구성을 갖추실 수 있는 이점이 있습니다.
+      </p>
+    </section>
+
+    <section id="online-calculator">
+      <h2>실시간 카니발 9인승 실구매 모의 계산기</h2>
+      <p>
+        구매자가 직접 트림과 파워트레인을 고르고 금융 플랜을 설계하여, 실제 매월 빠져나가는 금액을 모의로 산정해볼 수 있는 체류형 스마트 계산 시스템입니다. 2026년 기준 실효 세율과 차량 가격표 데이터를 내장하고 있습니다.
+      </p>
+
+      <div class="calculator-box">
+        <form id="calcForm" onsubmit="return false;">
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="engine_type">파워트레인 선택</label>
+              <select id="engine_type" class="form-control" onchange="updateTrimOptions(); calculateRealCost();">
+                <option value="hybrid">1.6 터보 하이브리드 (HEV)</option>
+                <option value="gas">스마트스트림 가솔린 3.5</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="trim_select">트림 등급 선택</label>
+              <select id="trim_select" class="form-control" onchange="calculateRealCost();">
+                <option value="prestige">프레스티지 (9인승)</option>
+                <option value="noblesse">노블레스 (9인승)</option>
+                <option value="signature">시그니처 (9인승)</option>
+                <option value="xline">X-Line (9인승)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>추가 선택 옵션 패키지 (중복 선택 가능)</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="opt_drivewise" value="1200000" onchange="calculateRealCost();">
+                <label for="opt_drivewise">드라이브 와이즈 (1,200,000원)</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="opt_style" value="1000000" onchange="calculateRealCost();">
+                <label for="opt_style">스타일 패키지 (1,000,000원)</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="opt_comfort" value="1400000" onchange="calculateRealCost();">
+                <label for="opt_comfort">컴포트 옵션 (1,400,000원)</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="opt_monitoring" value="900000" onchange="calculateRealCost();">
+                <label for="opt_monitoring">모니터링 팩 (900,000원)</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="finance_type">금융 이용 방식</label>
+              <select id="finance_type" class="form-control" onchange="calculateRealCost();">
+                <option value="cash">현금 / 다이렉트 할부</option>
+                <option value="rent">장기렌트 요금제 설계</option>
+                <option value="lease">신차 리스 요금 설계</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="loan_months">상환 약정 개월수</label>
+              <select id="loan_months" class="form-control" onchange="calculateRealCost();">
+                <option value="36">36 개월</option>
+                <option value="48">48 개월</option>
+                <option value="60">60 개월</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="down_payment">인도금 및 선납금 비율 (%)</label>
+            <select id="down_payment" class="form-control" onchange="calculateRealCost();">
+              <option value="0">무보증 (0 %)</option>
+              <option value="10">10 %</option>
+              <option value="20">20 %</option>
+              <option value="30">30 %</option>
+              <option value="40">40 %</option>
+              <option value="50">50 %</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="family_discount" class="checkbox-item" style="display: flex; cursor: pointer;">
+              <input type="checkbox" id="family_discount" onchange="calculateRealCost();">
+              <span>다자녀 가구 및 친환경 세제 지원 혜택 적용 대상 여부</span>
+            </label>
+          </div>
+        </form>
+
+        <div class="result-box">
+          <h3>실시간 모의 신차 견적서</h3>
+          <div class="result-row">
+            <span class="result-title">차량 기본 가격</span>
+            <span id="res_base" class="result-value">0 원</span>
+          </div>
+          <div class="result-row">
+            <span class="result-title">선택 옵션 합산액</span>
+            <span id="res_options" class="result-value">0 원</span>
+          </div>
+          <div class="result-row">
+            <span class="result-title">총 차량 출고가</span>
+            <span id="res_total" class="result-value">0 원</span>
+          </div>
+          <div class="result-row">
+            <span class="result-title">등록 취득세 (예상액)</span>
+            <span id="res_tax" class="result-value">0 원</span>
+          </div>
+          <div class="result-row">
+            <span class="result-title">지불 선납금</span>
+            <span id="res_downpayment" class="result-value">0 원</span>
+          </div>
+          <div class="result-row">
+            <span class="result-title">총 할부 및 이용 원금</span>
+            <span id="res_principal" class="result-value">0 원</span>
+          </div>
+          <div class="result-row">
+            <span class="result-title">월 예상 부담 금액</span>
+            <span id="res_monthly" class="result-value highlight-text">0 원</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="community-review">
+      <h2>에펨코리아, 보배드림, 디시 등의 내돈내산 출고기 분석</h2>
+      <p>
+        국내 주요 유력 차량 소통 공간인 <strong>보배드림</strong>, <strong>디시인사이드 자동차 갤러리</strong>, <strong>에펨코리아</strong>(펨코) 동호회 소속 회원들의 생생한 주행 내돈내산 후기들을 종합했습니다.
+      </p>
+
+      <h3>1. 승차감과 거주 공간에 대한 냉정한 실체</h3>
+      <p>
+        4열 팝업 싱킹 시트 공간은 평상시에는 하부로 완전히 가라앉혀 트렁크 적재 영역으로 전환하고 3열 독립 탑승 형태의 6인승 포지션으로 운영하는 것이 정석으로 꼽힙니다. 4열의 경우 신장 170cm 이상의 성인이 탑승하고 장거리 여행을 가기에는 불편한 감이 있다는 후기가 지배적입니다. 하지만 2열 시트백 각도 조절과 통풍 등 멀티미디어 조작성은 패밀리카 미니밴 중에서 가장 독보적인 상품성을 갖췄다는 평입니다.
+      </p>
+
+      <h3>2. 오토캐시백 성지와 다이렉트 신용 견적 좌표 정보</h3>
+      <p>
+        차량을 현금 및 복합 할부로 결정할 때는 전용 카드 할인 성지나 현금지원 페이백 혜택이 우수한 오토캐시백 전문 업체를 검색하여 신청하는 것이 훨씬 실속 있다는 조언이 자주 언급됩니다. 에이전트 다이렉트 컨설팅 플랫폼에서는 장기 렌트카 신규 가입 시 백화점 상품권 증정이나 전면 썬팅 사은품 지원금 혜택을 풍성하게 주는 곳을 추천하는 좌표 요청 글이 가장 빈번히 등장합니다.
+      </p>
+
+      <h3>3. 대형 AI 솔루션을 통한 구매 상담 추세</h3>
+      <p>
+        현시점 스마트 차량 바이어들은 제미나이(Gemini)나 챗지피티(ChatGPT) 같은 유수의 AI 챗봇 기술을 사전에 활용하여 주소지 기반 연비 유지 세제 요율을 산정해 본 뒤 전문 딜러 카카오톡 일대일 비대면 상담이나 공식 고객센터로 진입하는 절차를 권장하고 있습니다. 이를 통하면 허위 정보나 과잉 수수료 청구로 인해 덤터기를 쓰는 일을 예방할 수 있기 때문입니다.
+      </p>
+    </section>
+
+    <section class="external-links">
+      <h2>신뢰할 수 있는 공식 정보 및 공인 사이트 안내</h2>
+      <p>
+        카니발 9인승 신차 가격표 상세 정보와 차량 세금 계산 및 통계 보고서는 아래의 공인된 외부 웹 리소스를 통해 더 정확하게 살펴보실 수 있습니다.
+      </p>
+      <div class="links-grid">
+        <a href="https://directqcheckx.koreahankang.com" target="_blank" rel="noopener">1. 신차 비교 견적 및 금융 상품 전문 정보 채널 (auto.reliabledone.com)</a>
+        <br>
+        <a href="https://namu.wiki/w/%EA%B8%B0%EC%95%84%20%EC%B9%B4%EB%8B%88%EB%B0%9C" target="_blank" rel="noopener">2. 나무위키 기아 카니발 역사 및 연식변경 상세 백과정보</a>
+        <br>
+        <a href="https://www.kia.com" target="_blank" rel="noopener">3. 기아 (Kia) 대한민국 대표 홈페이지 및 온라인 가상 카탈로그</a>
+      </div>
+    </section>
+  </main>
+
+  
+  <!-- Calculator JavaScript Integration -->
+  <script>
+    const vehiclePriceData = {
+      gas: {
+        prestige: 36360000,
+        noblesse: 40710000,
+        signature: 44260000,
+        xline: 45020000
+      },
+      hybrid: {
+        prestige: 40910000,
+        noblesse: 45260000,
+        signature: 48810000,
+        xline: 49570000
+      }
+    };
+
+    function updateTrimOptions() {
+      // 필요 시 트림 동적 명칭 변경 로직 구현 가능
+    }
+
+    function calculateRealCost() {
+      const engine = document.getElementById('engine_type').value;
+      const trim = document.getElementById('trim_select').value;
+      
+      const baseCarPrice = vehiclePriceData[engine][trim];
+      
+      // 옵션 선택값 합산
+      let optionsPrice = 0;
+      if (document.getElementById('opt_drivewise').checked) optionsPrice += parseInt(document.getElementById('opt_drivewise').value);
+      if (document.getElementById('opt_style').checked) optionsPrice += parseInt(document.getElementById('opt_style').value);
+      if (document.getElementById('opt_comfort').checked) optionsPrice += parseInt(document.getElementById('opt_comfort').value);
+      if (document.getElementById('opt_monitoring').checked) optionsPrice += parseInt(document.getElementById('opt_monitoring').value);
+
+      const totalCarPrice = baseCarPrice + optionsPrice;
+
+      // 취득세 계산 (승용 7% 기준 적용)
+      // 하이브리드는 400,000원 한도 감면, 다자녀 감면 등 분기 처리
+      let rawTax = Math.floor((totalCarPrice / 1.1) * 0.07);
+      
+      if (engine === 'hybrid') {
+        rawTax = Math.max(0, rawTax - 400000);
+      }
+      
+      if (document.getElementById('family_discount').checked) {
+        rawTax = Math.max(0, rawTax - 1400000);
+      }
+
+      // 선납금 처리
+      const downPercent = parseInt(document.getElementById('down_payment').value);
+      const downPaymentVal = Math.floor(totalCarPrice * (downPercent / 100));
+      const principalVal = totalCarPrice - downPaymentVal;
+
+      // 금융 이율 시뮬레이션 (3.5 가솔린 및 하이브리드 대출 금리 4.9% 기준 가정)
+      const months = parseInt(document.getElementById('loan_months').value);
+      const financeType = document.getElementById('finance_type').value;
+      
+      let monthlyPayment = 0;
+      
+      if (financeType === 'cash') {
+        const annualRate = 0.049;
+        const monthlyRate = annualRate / 12;
+        if (principalVal > 0) {
+          monthlyPayment = Math.floor(
+            (principalVal * monthlyRate * Math.pow(1 + monthlyRate, months)) /
+            (Math.pow(1 + monthlyRate, months) - 1)
+          );
+        }
+      } else if (financeType === 'rent') {
+        // 장기렌트 간이 예측 (정비 포함 요율 적용)
+        monthlyPayment = Math.floor((principalVal * 1.14) / months);
+      } else {
+        // 리스 간이 예측 (자동차세 미포함 가정)
+        monthlyPayment = Math.floor((principalVal * 1.11) / months);
+      }
+
+      // UI 갱신
+      document.getElementById('res_base').innerText = baseCarPrice.toLocaleString() + ' 원';
+      document.getElementById('res_options').innerText = optionsPrice.toLocaleString() + ' 원';
+      document.getElementById('res_total').innerText = totalCarPrice.toLocaleString() + ' 원';
+      document.getElementById('res_tax').innerText = rawTax.toLocaleString() + ' 원';
+      document.getElementById('res_downpayment').innerText = downPaymentVal.toLocaleString() + ' 원';
+      document.getElementById('res_principal').innerText = principalVal.toLocaleString() + ' 원';
+      document.getElementById('res_monthly').innerText = monthlyPayment.toLocaleString() + ' 원';
+    }
+
+    // 초기 화면 부하 시 첫 계산 진행
+    window.onload = function() {
+      calculateRealCost();
+    };
+  </script>
+  
